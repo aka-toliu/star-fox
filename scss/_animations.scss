@@ -1,0 +1,134 @@
+
+//--//--//--//----------------- Background ------------------//--//--//--//
+
+@keyframes stars1 {
+    form{
+        background-position: 0px 0px
+    }
+    to{
+        background-position: 0px 320px
+    }
+}
+
+@keyframes stars2 {
+    form{
+        background-position: 0% 0px
+    }
+    to{
+        background-position: 0% 200px
+    }
+    }
+
+@keyframes stars3 {
+    form{
+        background-position: 0% 0px
+    }
+    to{
+        background-position: 0% 100px
+    }
+}
+
+@keyframes asteroid1{
+    from{
+        top: -400px;
+        left: 0px;
+        transform: rotate(0deg);
+    }
+    to{
+        top:1600px;
+        left: 300px;
+        transform: rotate(260deg);
+    }
+}
+
+@keyframes asteroid2{
+    from{
+        top: -400px;
+        right: 10vw;
+        transform: rotate(0deg);
+    }
+    to{
+        top:1600px;
+        right: 5vw;
+        transform: rotate(720deg);
+    }
+}
+
+
+
+//--//--//--//----------------- Planet ------------------//--//--//--//
+
+@keyframes ground {
+    form{
+        background-position: 0px 0px;
+    }
+    to{
+        background-position: 0px 300px;}
+    }
+
+@keyframes hole1{
+    0%{
+        top: -500px;
+        transform: scaleY(0.5);
+    }
+    50%{
+        top: 300px;
+        transform: scaleY(1.2);
+    }
+    100%{
+        top: 880px;
+        transform: scaleY(0.5);
+    }
+}
+
+@keyframes hole2{
+    0%{
+        top: -700px;
+        transform: scaleY(0.5);
+    }
+    50%{
+        top: 300px;
+        transform: scaleY(1.2);
+    }
+    100%{
+        top: 950px;
+        transform: scaleY(0.5);
+    }
+}
+
+
+
+
+//--//--//--//----------------- Arwing + Shadow ------------------//--//--//--//
+
+@keyframes arwing {
+    from{
+        transform: scale(0.55)
+    }
+    to{
+        transform: scale(0.50)
+    }
+}
+
+@keyframes fire1 {
+    from{
+        transform: scale(1)
+    }
+    to{
+        transform: scale(0.8)
+    }
+}
+
+@keyframes shadow1 {
+    from{
+        bottom: -10%
+    }
+    to{
+        bottom: -2%
+    }
+}
+
+
+
+
+

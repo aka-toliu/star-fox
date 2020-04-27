@@ -1,0 +1,770 @@
+@import '_animations.scss';
+
+$color-main: rgb(219, 219, 219);
+$color-dark: rgb(57, 51, 77);
+$color-blue: rgb(39, 138, 231);
+$fire: rgb(0, 225, 255);
+
+a{
+    margin: 0px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8em;
+}
+
+p{
+    position: absolute;
+    bottom: 0px;
+    padding: 0;
+    margin: 5px;
+}
+
+
+
+//--//--//--//-----------------Background------------------//--//--//--//
+
+body{
+    display: grid!important;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(15, 9, 51);
+    padding: 0;
+    margin: 0;
+}
+
+.stars-1{
+    z-index: -7;
+    width: 200vw;
+    height: 200vh;
+    background-image: radial-gradient(white, #a1a1 3px, transparent 30px);
+    background-repeat: repeat;
+    background-size: 320px 320px;
+    animation: stars1 10s linear infinite;
+    transform: rotate(15deg); 
+}
+
+.stars-2{
+    z-index: -7;
+    width: 150vw;
+    height: 150vh;
+    background-image: radial-gradient(white, #a1a1 1px, transparent 20px);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars2 20s linear infinite;
+}
+
+.stars-3{
+    z-index: -7;
+    width: 150vw;
+    height: 150vh;
+    opacity: 0.5;
+    background-image: radial-gradient(white, #a1a1 1px, transparent 10px);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: stars3 30s linear infinite;
+}
+
+.asteroid{
+    position: absolute;
+    top: -400px;
+    z-index: -7;
+    width: 300px;
+    height: 300px;
+    background-color: darken(rgb(15, 9, 51), 2%);
+    clip-path: polygon(50% 0%, 79% 12%, 90% 38%, 100% 60%, 82% 94%, 47% 94%, 14% 98%, 0% 70%, 2% 23%, 13% 7%);
+    animation: asteroid1 60s linear infinite;
+}
+
+.asteroid2{
+    position: absolute;
+    top: -400px;
+    width: 100px;
+    height: 100px;
+    background-color: darken(rgb(15, 9, 51), 2%);
+    clip-path: polygon(50% 0%, 79% 12%, 90% 38%, 100% 60%, 82% 94%, 47% 94%, 14% 98%, 0% 70%, 2% 23%, 13% 7%);
+    animation: asteroid2 40s linear infinite;
+}
+
+
+
+//--//--//--//-----------------Planet------------------//--//--//--//
+
+.ground{
+    background-clip: initial;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    z-index: -5;
+    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+    background-color: #6638a2 ;
+    box-shadow: inset #1f063f -16px -34px 90px 38px;
+    
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        align-self: center;
+        clip-path: circle(50% at 50% 50%);
+        width: 595px;
+        height: 595px;
+        border-radius: 100%;
+        background-color: #291a2b;
+        background-image: linear-gradient(0deg, #291a2b 19%, #240626 19%, #240626 34%, #401e35 34%, #401e35 50%, #291a2b 50%, #291a2b 69%, #240626 69%, #240626 84%, #401e35 84%, #401e35 100%);
+        animation: ground 0.7s linear infinite;
+        box-shadow: inset #0a0223 -2px -20px 148px 78px;
+        filter: blur(10px);
+    }
+}
+
+.shiny{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    z-index: -6;
+    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+    opacity: 0.2;
+    background-color: #daf3ff;
+    filter: blur(50px);
+}
+
+.holes{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+    clip-path: circle(50% at 50% 50%);
+    z-index: -4;
+}
+
+.hole-2{
+    display: grid;
+    justify-self: center;
+    position: absolute;
+    top: -100px;
+    width: 50px;
+    height: 25px;
+    border-radius: 100%;
+    opacity: 0.5;
+    background-color: rgb(71, 20, 60);
+    box-shadow: inset #0c021b 1px 8px 10px 4px;
+    animation: hole1 2s linear infinite; 
+    animation-delay: 0.8s;
+
+    &::before{
+        content: "";
+        align-self: center;
+        position: absolute;
+        left: -130px;
+        bottom: -80px;
+        width: 120px;
+        height: 60px;
+        border-radius: 100%;
+        opacity: 0.8;
+        background-color: rgb(71, 20, 60);
+        box-shadow: inset #0c021b 1px 8px 10px 4px;
+}
+    &::after{
+        content: "";
+        align-self: center;
+        position: absolute;
+        right: -150px;
+        bottom: -80px;
+        width: 30px;
+        height: 15px;
+        border-radius: 100%;
+        opacity: 0.5;
+        background-color: rgb(71, 20, 60);
+        box-shadow: inset #0c021b 1px 8px 10px 4px;
+    }
+}
+
+.hole-1{
+    display: grid;
+    justify-self: center;
+    position: absolute;
+    top: 0px;
+    width: 100px;
+    height: 50px;
+    border-radius: 100%;
+    opacity: 0.5;
+    background-color: rgb(71, 20, 60);
+    box-shadow: inset #0c021b 1px 8px 10px 4px;
+    animation: hole1 2s linear infinite; 
+
+    &::before{
+        content: "";
+        align-self: center;
+        position: absolute;
+        left: -100px;
+        bottom: -80px;
+        width: 30px;
+        height: 15px;
+        border-radius: 100%;
+        opacity: 0.8;
+        background-color: rgb(71, 20, 60);
+        box-shadow: inset #0c021b 1px 8px 10px 4px;
+    }
+   
+    &::after{
+        content: "";
+        align-self: center;
+        position: absolute;
+        right: -50px;
+        bottom: -80px;
+        width: 50px;
+        height: 25px;
+        border-radius: 100%;
+        opacity: 0.5;
+        background-color: rgb(71, 20, 60);
+        box-shadow: inset #0c021b 1px 8px 10px 4px;
+    }
+}
+
+
+
+//--//--//--//-----------------Arwing------------------//--//--//--//
+
+.aw-container{
+    justify-self: center;
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    display: grid;
+    transform: scale(0.55);
+    animation: arwing 3s alternate infinite;
+}
+
+.aw-body{
+    position: relative;
+    justify-self: center;
+    width: 130px;
+    height: 100%;
+    display: grid;
+}
+
+.body-draw1{
+    position: absolute;
+    display: grid;
+    top: 0;
+    height: 70%;
+    width: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: $color-main;
+    box-shadow: inset darken($color-main, 10%) 65px 0px 0px 0px;
+
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        justify-self: center;
+        background-color: darken($color-main, 23%);
+        clip-path: polygon(35% 0, 65% 0, 100% 100%, 0% 100%);
+        width: 58%;
+        height: 28%;
+        z-index: 1;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: lighten($color-main, 3%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        width: 10%;
+        height: 100%;
+        z-index: 0;
+    }
+}
+
+.body-draw2{
+    position: absolute;
+    display: grid;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background-color: darken($color-main, 10%);
+    box-shadow: inset darken($color-main, 20%) 65px 0px 0px 0px;
+
+    &::before{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: darken($color-main, 17%);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        width: 3%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: $color-main;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        width: 55%;
+        height: 100%;
+    }
+}
+
+.body-cabine{
+    justify-self: center;
+    bottom: 118px;
+    position: absolute;
+    display: grid;
+    height: 25%;
+    width: 50%;
+    z-index: 1;
+    clip-path: polygon(35% 0, 65% 0, 100% 75%, 80% 100%, 20% 100%, 0 75%);
+    box-shadow: inset darken($color-dark, 10%) 33px 0px 0px 0px;
+    background-color: $color-dark;
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        width: 60%;
+        height: 100%;
+        background-color: darken($color-dark, 20%);
+        clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
+        z-index: 3;
+    }
+}
+
+.aw-wingR{
+    position: absolute;
+    bottom: 10%;
+    right: -120%;
+    height: 27%;
+    width: 120%;
+}
+
+.wingR-draw1{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    background-color: $color-main;
+    clip-path: polygon(27% 0%, 100% 65%, 100% 128%, 7% 65%, 0 0);
+
+    &::before{
+        content: "";
+        background-color: darken($color-main, 5%);
+        clip-path: polygon(-6% 0%, 64% 11%, 104% 95%, 10% 100%);
+        position: absolute;
+        justify-self: center;
+        transform: rotate(30deg);
+        right: 30%;
+        bottom: 10%;
+        width:70%;
+        height: 30%;
+    }
+
+    &::after{
+        content: "";
+        background-color: darken($color-main, 15%);
+        clip-path: polygon(0 0, 0% 100%, 100% 50%);
+        position: absolute;
+        top: -80%;
+        left: -4%;
+        justify-self: start;
+        width:30%;
+        height: 220%;
+    }
+}
+
+.wingR-draw2{
+    position: absolute;
+    right: -74%;
+    bottom: 0px;
+    height: 35%;
+    width: 75%;
+    background-color: darken($color-main, 5%);
+    clip-path: polygon(0 0, 100% 100%, 0% 100%);
+}
+
+.smoke-R{
+    position: absolute;
+    bottom: -420px;
+    right: -265px;
+    height: 480px;
+    width: 25px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 100% 0, 67% 73%, 47% 100%, 28% 71%, 0 0);
+    opacity: 0.2;
+    filter: blur(50px);
+}
+
+.smoke-L{
+    position: absolute;
+    transform: scaleX(-1);
+    bottom: -420px;
+    left: -265px;
+    height: 480px;
+    width: 25px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 100% 0, 67% 73%, 47% 100%, 28% 71%, 0 0);
+    opacity: 0.2;
+    filter: blur(50px);
+}
+
+.aw-wingL{
+    position: absolute;
+    bottom: 10%;
+    left: -120%;
+    height: 27%;
+    width: 120%;
+    transform: scaleX(-1);
+}
+
+.wingL-draw1{
+    height: 100%;
+    width: 100%;
+    background-color: $color-main;
+    clip-path: polygon(27% 0%, 100% 65%, 100% 128%, 7% 65%, 0 0);
+
+    &::before{
+        content: "";
+        background-color: darken($color-main, 5%);
+        clip-path: polygon(-6% 0%, 64% 11%, 104% 95%, 10% 100%);
+        position: absolute;
+        justify-self: center;
+        transform: rotate(30deg);
+        right: 30%;
+        bottom: 10%;
+        width:70%;
+        height: 30%;
+    }
+
+    &::after{
+        content: "";
+        background-color: darken($color-main, 15%);
+        clip-path: polygon(0 0, 0% 100%, 100% 50%);
+        position: absolute;
+        top: -80%;
+        left: -4%;
+        justify-self: start;
+        width:30%;
+        height: 220%;
+    }
+}
+
+.wingL-draw2{
+    position: absolute;
+    right: -74%;
+    bottom: 0px;
+    height: 35%;
+    width: 75%;
+    background-color: darken($color-main, 5%);
+    clip-path: polygon(0 0, 100% 100%, 0% 100%);
+}
+
+.aw-gunR{
+    position: absolute;
+    right: -25%;
+    bottom: 40px;
+    height: 50%;
+    width: 40%;
+    z-index: 2;
+}
+
+.gunR-draw1{
+    position: relative;
+    display: grid;
+    height: 70%;
+    background-color: $color-blue;
+    clip-path: polygon(50% 0%, 100% 85%, 50% 100%, 0 85%);
+    box-shadow: inset darken($color-blue, 10%) 27px 0px 0px 0px;
+    z-index: 4;
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: lighten($color-blue, 7%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        width: 12%;
+        height: 100%;
+    }
+}
+.gunR-draw2{
+    position: relative;
+    display: grid;
+    margin-top: -27px;
+    height: 40%;
+    background-color: darken($color-blue, 10%);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    box-shadow: inset darken($color-blue, 20%) 27px 0px 0px 0px;
+    z-index: 3;
+
+    &::before{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        align-self: start;
+        background-color: darken($color-blue, 35%);
+        clip-path: polygon(0 0, 0 13%, 50% 100%, 100% 15%, 100% 0, 48% 0);
+        width: 100%;
+        height: 33%;
+        z-index: 2;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: lighten($color-blue, 7%);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        width: 10%;
+        height: 100%;
+        z-index: 1;
+    }
+}
+
+.aw-gunL{
+    position: absolute;
+    left: -25%;
+    bottom: 40px;
+    height: 50%;
+    width: 40%;
+    z-index: 2;
+}
+
+.gunL-draw1{
+    position: relative;
+    display: grid;
+    height: 70%;
+    background-color: $color-blue;
+    clip-path: polygon(50% 0%, 100% 85%, 50% 100%, 0 85%);
+    box-shadow: inset darken($color-blue, 10%) -27px 0px 0px 0px;
+    z-index: 4;
+
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: lighten($color-blue, 7%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        width: 12%;
+        height: 100%;
+    }
+}
+.gunL-draw2{
+    position: relative;
+    display: grid;
+    margin-top: -27px;
+    height: 40%;
+    background-color: darken($color-blue, 10%);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    box-shadow: inset darken($color-blue, 20%) -27px 0px 0px 0px;
+    z-index: 3;
+
+    &::before{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        align-self: start;
+        background-color: darken($color-blue, 35%);
+        clip-path: polygon(0 0, 0 13%, 50% 100%, 100% 15%, 100% 0, 48% 0);
+        width: 100%;
+        height: 33%;
+        z-index: 2;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        justify-self: center;
+        background-color: lighten($color-blue, 7%);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        width: 10%;
+        height: 100%;
+    }
+}
+
+
+.fire-1{
+    transform-origin: top;
+    position: absolute;
+    display: grid;
+    justify-self: center;
+    bottom: -90%;
+    width: 50%;
+    height: 100%;
+    background-color: lighten($fire, 0%);
+    clip-path: polygon(50% 0%, 80% 10%, 97% 36%, 50% 100%, 3% 35%, 20% 10%);
+    filter: blur(5px);
+    z-index: -1;
+    animation: fire1 0.1s infinite;
+
+    &::after{
+        content: "";
+        transform-origin: top;
+        position: absolute;
+        justify-self: center;
+        width: 80%;
+        height: 100%;
+        background-color: lighten($fire, 42%);
+        clip-path: polygon(50% 0%, 80% 10%, 97% 36%, 50% 100%, 3% 35%, 20% 10%);
+    }
+}
+.fire-2{
+    transform-origin: top;
+    border-radius: 100%;
+    position: absolute;
+    justify-self: center;
+    bottom: -75%;
+    width: 60%;
+    height: 90%;
+    background-color: lighten($fire, 10%);
+    filter: blur(30px);
+    opacity: 0.4;
+    z-index: -2;
+}
+
+
+
+//--//--//--//-----------------Shadow------------------//--//--//--//
+
+.aw-shadow-body{
+    position: absolute;
+    bottom: -10%;
+    justify-self: center;
+    width: 130px;
+    height: 100%;
+    display: grid;
+    z-index: -4;
+    filter: blur(10px);
+    opacity: 0.8;
+    animation: shadow1 3s alternate infinite; 
+}
+
+.body-shadow-draw1{
+    position: absolute;
+    display: grid;
+    top: 0;
+    height: 70%;
+    width: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: black;
+}
+
+.body-shadow-draw2{
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background-color: black;
+}
+
+.aw-shadow-wingR{
+    position: absolute;
+    bottom: 10%;
+    right: -120%;
+    height: 27%;
+    width: 120%;
+}
+
+.wingR-shadow-draw1{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    background-color: black;
+    clip-path: polygon(27% 0%, 100% 65%, 100% 128%, 7% 65%, 0 0);
+}
+
+.wingR-shadow-draw2{
+    position: absolute;
+    right: -74%;
+    bottom: 0px;
+    height: 35%;
+    width: 75%;
+    background-color: black;
+    clip-path: polygon(0 0, 100% 100%, 0% 100%);
+}
+
+.aw-shadow-wingL{
+    position: absolute;
+    bottom: 10%;
+    left: -120%;
+    height: 27%;
+    width: 120%;
+    transform: scaleX(-1);
+}
+
+.wingL-shadow-draw1{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    clip-path: polygon(27% 0%, 100% 65%, 100% 128%, 7% 65%, 0 0);
+}
+
+.wingL-shadow-draw2{
+    position: absolute;
+    right: -74%;
+    bottom: 0px;
+    height: 35%;
+    width: 75%;
+    background-color: black;
+    clip-path: polygon(0 0, 100% 100%, 0% 100%);
+}
+
+.aw-shadow-gunL{
+    position: absolute;
+    left: -25%;
+    bottom: 40px;
+    height: 50%;
+    width: 40%;
+}
+
+.gunL-shadow-draw1{
+    position: relative;
+    display: grid;
+    height: 70%;
+    background-color: black;
+    clip-path: polygon(50% 0%, 100% 85%, 50% 100%, 0 85%);
+}
+
+.gunL-shadow-draw2{
+    position: relative;
+    display: grid;
+    margin-top: -27px;
+    height: 40%;
+    background-color: black;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.aw-shadow-gunR{
+    position: absolute;
+    right: -25%;
+    bottom: 40px;
+    height: 50%;
+    width: 40%;
+}
+
+.gunR-shadow-draw1{
+    position: relative;
+    display: grid;
+    height: 70%;
+    background-color: black;
+    clip-path: polygon(50% 0%, 100% 85%, 50% 100%, 0 85%);
+}
+
+.gunR-shadow-draw2{
+    position: relative;
+    display: grid;
+    margin-top: -27px;
+    height: 40%;
+    background-color: black;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
