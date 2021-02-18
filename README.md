@@ -2,6 +2,7 @@
 
 A Star Fox ship with only SCSS.
 
+![Preview](./Star-Fox-prev.gif)
 
 ## Instalações
 
