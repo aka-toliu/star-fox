@@ -1,6 +1,6 @@
 # StarFox
 
-A cool animation using HTML, CSS + SASS and Clippy.
+A Star Fox ship with only SCSS.
 
 
 ## Instalações
